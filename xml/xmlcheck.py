@@ -1,4 +1,4 @@
-# $python3 xmlcheck.py QPT_35501_046R.xml
+# $python3 xmlcheck.py QPT*
 
 import Utils
 import sys
@@ -35,5 +35,6 @@ def checksn(allsn):
 
 parse_sn = get_serial(sys.argv[1])
 
+print(parse_sn)
 print("correct serial numbers with IDs: ",checksn(parse_sn)[0])
 print("wrong serial numbers: ", checksn(parse_sn)[1])
