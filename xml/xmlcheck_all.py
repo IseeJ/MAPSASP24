@@ -11,16 +11,7 @@ def getID(sn):
     db_accessor = Utils.DBaccess()
     ID = db_accessor.component_id(sn,idt='serial_number')
 
-    return ID
-
-#def checksn(allsn):                                                                                                                                                                                      
-#    wrongsn=[]                                                                                                                                                                                           
-#    for sn in allsn:                                                                                                                                                                                     
-#        ID = getID(sn)                                                                                                                                                                                   
-#        if ID is None:                                                                                                                                                                                   
-#            wrongsn.append(sn)                                                                                                                                                                           
-
-#    return wrongsn                                                                                                                                                                                       
+    return ID                                                                                                                                                                                    
 
 def get_serial(filepath):                                                                                                    
     tree = ET.parse(filepath)
