@@ -1,4 +1,5 @@
-# $python3 xmlcheck.py QPT*
+# $python3 xmlcheck.py /uscms/home/jennetd/nobackup/outer-tracker/preproduction/XML/QPT*
+
 
 import Utils
 import sys
