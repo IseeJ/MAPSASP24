@@ -11,15 +11,6 @@ def getID(sn):
 
     return ID
 
-def checksn(allsn):
-    wrongsn=[]
-    for sn in allsn:
-        ID = getID(sn)
-        if ID is None:
-            wrongsn.append(sn)
-
-    return wrongsn
-
 def get_serial(filename):
     path = "/uscms/home/jennetd/nobackup/outer-tracker/preproduction/XML/"+filename
     tree = ET.parse(path)
@@ -31,5 +22,18 @@ def get_serial(filename):
             serial_numbers.append(serial.text)
     return serial_numbers
 
-#print(get_serial(sys.argv[1]))                                                                                  
-print(checksn(get_serial(sys.argv[1]))
+def checksn(allsn):
+    wrongsn = []
+    sn_ID = {}
+    for sn in allsn:
+        ID = getID(sn)
+        if ID is not None:
+            sn_ID[sn] = ID
+        else:
+            wrongsn.append(sn)
+    return sn_ID, wrongsn
+
+parse_sn = get_serial(sys.argv[1])
+
+print("correct serial numbers with IDs: ",checksn(parse_sn)[0])
+print("wrong serial numbers: ", checksn(parse_sn)[1])
