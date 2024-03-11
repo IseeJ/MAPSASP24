@@ -51,6 +51,3 @@ for xmlfile in xmlfiles:
     parse_sn = get_serial(xmlfile)
     print("correct serial number with ID: ",checksn(parse_sn)[0])
     print("wrong serial number: ", checksn(parse_sn)[1])
-
-
-#results
