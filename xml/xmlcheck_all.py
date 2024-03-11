@@ -43,10 +43,7 @@ def checksn(allsn):
             wrongsn.append(sn)
     return sn_ID, wrongsn
 
-
-
-if __name__ == "__main__":
-    xmlfiles = glob.glob(sys.argv[1])
+xmlfiles = glob.glob(sys.argv[1])
 
 
 for xmlfile in xmlfiles:
