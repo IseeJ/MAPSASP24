@@ -32,4 +32,4 @@ def get_serial(filename):
     return serial_numbers
 
 #print(get_serial(sys.argv[1]))                                                                                  
-print(sys.argv[1]+"wrong sn:"+checksn(get_serial(sys.argv[1])))
+print(checksn(get_serial(sys.argv[1]))
