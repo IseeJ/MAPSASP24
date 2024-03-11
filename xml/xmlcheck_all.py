@@ -1,4 +1,4 @@
-$python3 xmlcheck_all.py /uscms/home/jennetd/nobackup/outer-tracker/preproduction/XML/QPT*
+#$python3 xmlcheck_all.py /uscms/home/jennetd/nobackup/outer-tracker/preproduction/XML/QPT*
 
 
 import Utils
@@ -55,3 +55,5 @@ for xmlfile in xmlfiles:
     print("correct serial number with ID: ",checksn(parse_sn)[0])
     print("wrong serial number: ", checksn(parse_sn)[1])
 
+
+#results
