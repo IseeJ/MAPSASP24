@@ -13,8 +13,8 @@ def getID(sn):
     return ID
 
 def get_serial(filename):
-    path = "/uscms/home/jennetd/nobackup/outer-tracker/preproduction/XML/"+filename
-    tree = ET.parse(path)
+    #path = "/uscms/home/jennetd/nobackup/outer-tracker/preproduction/XML/"+filename
+    tree = ET.parse(filename)
     root = tree.getroot()
     serial_numbers = []
     for part in root.findall('.//PART'):
