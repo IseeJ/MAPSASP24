@@ -1,8 +1,8 @@
-# $python3 xmlcheck.py /uscms/home/jennetd/nobackup/outer-tracker/preproduction/XML/QPT*
-
+#$python3 xmlcheck.py /uscms/home/jennetd/nobackup/outer-tracker/preproduction/XML/filename  
 
 import Utils
 import sys
+import glob
 import xml.etree.ElementTree as ET
 
 
@@ -10,11 +10,10 @@ def getID(sn):
     db_accessor = Utils.DBaccess()
     ID = db_accessor.component_id(sn,idt='serial_number')
 
-    return ID
+    return ID                                                                                           
 
-def get_serial(filename):
-    #path = "/uscms/home/jennetd/nobackup/outer-tracker/preproduction/XML/"+filename
-    tree = ET.parse(filename)
+def get_serial(filepath):                             
+    tree = ET.parse(filepath)
     root = tree.getroot()
     serial_numbers = []
     for part in root.findall('.//PART'):
@@ -25,17 +24,17 @@ def get_serial(filename):
 
 def checksn(allsn):
     wrongsn = []
-    sn_ID = {}
+    correctsn_ID = {}
     for sn in allsn:
         ID = getID(sn)
         if ID is not None:
-            sn_ID[sn] = ID
+            correctsn_ID[sn] = ID
         else:
             wrongsn.append(sn)
-    return sn_ID, wrongsn
+    return correctsn_ID, wrongsn
 
-parse_sn = get_serial(sys.argv[1])
-
-print(parse_sn)
-print("wrong: ", checksn(parse_sn)[1])
+xmlfile = sys.argv[1]
+print(xmlfile)
+parse_sn = get_serial(xmlfile)
 print("correct: ",checksn(parse_sn)[0])
+print("wrong: ", checksn(parse_sn)[1])
