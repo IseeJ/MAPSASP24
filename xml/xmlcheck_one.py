@@ -37,5 +37,5 @@ def checksn(allsn):
 parse_sn = get_serial(sys.argv[1])
 
 print(parse_sn)
-print("correct serial numbers with IDs: ",checksn(parse_sn)[0])
-print("wrong serial numbers: ", checksn(parse_sn)[1])
+print("wrong: ", checksn(parse_sn)[1])
+print("correct: ",checksn(parse_sn)[0])
